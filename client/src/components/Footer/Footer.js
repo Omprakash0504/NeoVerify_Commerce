@@ -38,13 +38,13 @@ const Footer = () => {
                         </div>
                         <ul className="footer__contacts">
                             <li className="footer__contact">
-                                <LocalPhoneIcon /> <span>+123 4567 890</span>
+                                <LocalPhoneIcon /> <span>+91 826 069 3117</span>
                             </li>
                             <li className="footer__contact">
-                                <EmailIcon /> <span>shop@shema.com</span>
+                                <EmailIcon /> <span>sahooomprakash219@gmail.com</span>
                             </li>
                             <li className="footer__contact">
-                                <LocationOnIcon /> <span>Addis Ababa, Ethiopia</span>
+                                <LocationOnIcon /><span>Dholamara,Nayagarh,odisha</span>
                             </li>
                         </ul>
                     </div>
@@ -53,18 +53,21 @@ const Footer = () => {
                             <h1>Stay Connected</h1>
                         </div>
                     <ul className="footer__social__links">
-                            <li className="social__link">
-                                <TwitterIcon />
+                    <li className="social__link">
+                                <a href="https://twitter.com/home"><TwitterIcon /></a>
                             </li>
                             <li className="social__link">
-                                <InstagramIcon />
+                               
+                                <a href="https://www.instagram.com/omprakash_sahoo.rsr/"> <InstagramIcon /></a>
                             </li>
                             <li className="social__link">
-                                <YouTubeIcon />
+                                <a href="https://www.youtube.com/"><YouTubeIcon /></a>
                             </li>
                             <li className="social__link">
-                                <TelegramIcon />
+                                
+                                <a href="https://www.linkedin.com/in/om-prakash-sahoo-9241b2235//"><TelegramIcon /></a>
                             </li>
+                            
                             <li className="social__link">
                                 <PinterestIcon />
                             </li>
@@ -73,7 +76,7 @@ const Footer = () => {
                 </div>
                 <div className="fotter__copyright__container">
                     <ul className='nav'>
-                        <li className="footer__copyright">©2022 Shema Ltd. |</li>
+                        <li className="footer__copyright">©2024 Shema Ltd. |</li>
                         <li className="footer__terms__condition"> | Terms & Condition |</li>
                         <li className="footer__privacy__policy">| Privacy Policy</li>
                     </ul>
