@@ -9,30 +9,34 @@ import { WishItemsContext } from '../../../Context/WishItemsContext';
 
 const ItemCard = (props) => {
     const [isHovered, setIsHovered] = useState(false)
-    const  cartItemsContext  = useContext(CartItemsContext)
+    const cartItemsContext = useContext(CartItemsContext)
     const wishItemsContext = useContext(WishItemsContext)
+    const [Favorite, setFavorite] = useState(false)
 
     const handleAddToWishList = () => {
         wishItemsContext.addItem(props.item)
+        setFavorite(true)
     }
 
     const handleAddToCart = () => {
         cartItemsContext.addItem(props.item, 1)
     }
 
-    return ( 
+    console.log(wishItemsContext.items, props.item)
+
+    return (
         <div className="product__card__card">
             <div className="product__card">
-                <div className="product__image" 
+                <div className="product__image"
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                > 
-                    {isHovered? <img src={`https://shema-backend.vercel.app/public/${props.item.category}/${props.item.image[1].filename}`} alt="item" className="product__img"/>: <img src= {`https://shema-backend.vercel.app/public/${props.item.category}/${props.item.image[0].filename}`} alt="item" className="product__img"/> }
+                >
+                    {isHovered ? <img src={`https://shema-backend.vercel.app/public/${props.item.category}/${props.item.image[1].filename}`} alt="item" className="product__img" /> : <img src={`https://shema-backend.vercel.app/public/${props.item.category}/${props.item.image[0].filename}`} alt="item" className="product__img" />}
                 </div>
                 <div className="product__card__detail">
                     <div className="product__name">
                         <Link to={`/item/${props.item.category}/${props.item._id}`}>
-                           {props.item.name}
+                            {props.item.name}
                         </Link>
                     </div>
                     <div className="product__description">
@@ -42,17 +46,17 @@ const ItemCard = (props) => {
                         <span>${props.item.price}</span>
                     </div>
                     <div className="product__card__action">
-                        <IconButton onClick={handleAddToWishList} sx={ {borderRadius: '20px', width: '40px', height: '40px', /* borderWidth: '3px', borderStyle: 'solid', borderColor: '#FFE26E' */ }  }>
-                            <FavoriteBorderIcon sx={{width: '22px', height: '22px', color: 'black'}}/>
+                        <IconButton onClick={handleAddToWishList} sx={{ borderRadius: '20px', width: '40px', height: '40px', /* borderWidth: '3px', borderStyle: 'solid', borderColor: '#FFE26E' */ }}>
+                            <FavoriteBorderIcon sx={{ width: '22px', height: '22px', color: 'black' } && wishItemsContext.items.some(item => item._id == props.item._id) ? { color: "red" } : {}} />
                         </IconButton>
-                        <IconButton onClick={handleAddToCart} sx={ {borderRadius: '20px', width: '40px', height: '40px' /*  borderWidth: '3px', borderStyle: 'solid', borderColor: '#FFE26E' */}}>
-                            <AddShoppingCartIcon sx={{width: '22px', height: '22px', color: 'black'}}/>
+                        <IconButton onClick={handleAddToCart} sx={{ borderRadius: '20px', width: '40px', height: '40px' /*  borderWidth: '3px', borderStyle: 'solid', borderColor: '#FFE26E' */ }}>
+                            <AddShoppingCartIcon sx={{ width: '22px', height: '22px', color: 'black' }} />
                         </IconButton >
                     </div>
                 </div>
             </div>
         </div>
-     );
+    );
 }
- 
+
 export default ItemCard;

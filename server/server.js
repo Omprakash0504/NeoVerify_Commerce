@@ -7,12 +7,13 @@ const PORT = process.env.PORT || 5000
 
 // middlewares
 app.use(express.json())
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false }))
 app.use(express.static("public"));
 
 // connect to the mongodb database
-/* connectDB() */
+connectDB()
 
+app.use('/api/user'), require("./routes/user")
 app.use('/api/items', require("./routes/items"))
 app.use('/api/payment', cors(), require("./routes/payment"))
 
