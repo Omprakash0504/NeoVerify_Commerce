@@ -25,6 +25,7 @@ import Invoice from "../routes/Invoice"
 function App() {
 
   return (
+  <ContextProvider>
     <CartItemsProvider>
       <WishItemsProvider>
         <SearchProvider>
@@ -32,7 +33,6 @@ function App() {
             <Header />
             <Routes>
               <Route index element={<Home />} />
-              <Route path="/checkout" element={<Invoice/>} />
               <Route path="/account">
                 <Route path="me" element={<MyAccount />} />
                 <Route path="manage" element={<ManageAccount />} />
@@ -69,6 +69,7 @@ function App() {
         </SearchProvider>
       </WishItemsProvider>
     </CartItemsProvider>
+    </ContextProvider>
   );
 }
 

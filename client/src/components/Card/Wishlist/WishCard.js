@@ -28,7 +28,7 @@ const WishCard = (props) => {
                 <img src={`https://shema-backend.vercel.app/public/${props.item.category}/${props.item.image[1].filename}`} alt="item" className="wish__image"/>
             </div>
             <div className="wish__item__name">{props.item.name}</div>
-            <div className="wish__item__price">${props.item.price}</div>
+            <div className="wish__item__price">₹{props.item.price}</div>
             <div className="add__to__cart">
                 <Button variant='outlined' onClick={handelAddToCart} sx={[{'&:hover': { backgroundColor: '#FFE26E', borderColor: '#FFE26E', color: 'black'}, borderColor: 'black', backgroundColor: "black" , color: "#FFE26E"}]}>Add to cart</Button>
             </div>

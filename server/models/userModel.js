@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 
 const userSchema = mongoose.Schema(
     {
-        name: {
+        username: {
             type: String,
             required: true
         },
@@ -17,7 +17,28 @@ const userSchema = mongoose.Schema(
             required: true
         },
         orders: {
-            type: Array[String]
+            type: Array,
+            default: []
+        },
+        cart: {
+            type: Array,
+            default: []
+        },
+        wishlist: {
+            type: Array,
+            default: []
+        },
+        role:{
+            type:String,
+            enum: ['admin','user'],
+            default: 'user'
+        },
+        sign:{
+            type:String,
+        },
+        adress:{
+            type:String,
+            require: true
         }
     },
     {

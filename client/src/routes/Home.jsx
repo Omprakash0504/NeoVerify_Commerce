@@ -11,12 +11,18 @@ const Home = () => {
     TabTitle("Home - Shema");
 
     useEffect(() => {
-        axios.get("https://shema-backend.vercel.app/api/items")
+        axios.get("http://localhost:5000/api/items")
             .then(res => setFeaturedItems(res.data))
             .catch(err => console.log(err))
 
         window.scrollTo(0, 0)
     }, [])
+
+    useEffect(()=>{
+        axios.get("http://localhost:5000/api/user")
+            .then(res => setFeaturedItems(res.data))
+            .catch(err => console.log(err))
+    },[])
 
     return ( 
         <Fragment>

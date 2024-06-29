@@ -1,7 +1,32 @@
 import { Link } from 'react-router-dom';
 import './RegisterCard.css';
+import { useState } from 'react';
+import axios from 'axios';
 
 const RegisterCard = () => {
+    const [username,setUsername] = useState()
+
+    const register = () => {
+        if(!username) {
+            alert("Please enter a valid name")
+            return
+        }
+        if(!email) {
+            alert('Email is required')
+            return
+        }
+        if(!password){
+            alert('Password is required')
+            return
+        }
+
+        axios.post('http://localhost:5000/api/user/register',{username,email,password}).then(()=>{
+            
+            window.location='/';
+        }).catch(()=>{
+
+        })
+    }
     return ( 
         <div className="register__card__container">
             <div className="register__card">
@@ -10,12 +35,8 @@ const RegisterCard = () => {
                 </div>
                 <div className="register__inputs">
                 <div className="fname__input__container reg__input__container">
-                        <label className="fname__label input__label">First name</label>
+                        <label className="fname__label input__label">Name</label>
                         <input type="text" className="fname__input register__input" />
-                    </div>
-                    <div className="lname__input__container reg__input__container">
-                        <label className="lname__label input__label">Last name</label>
-                        <input type="text" className="lname__input register__input"/>
                     </div>
                     <div className="email__input__container reg__input__container">
                         <label className="email__label input__label">Email</label>
